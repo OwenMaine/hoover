@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Hoover Restaurants, LLC</title>
+    
+    <meta name="description" content="Learn about the origin, values, and founding story of Hoover Restaurants, LLC.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body x-data="{ mobileMenuOpen: false }" class="bg-white">
+
+    <header class="fixed top-0 left-0 w-full z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white tracking-wider" style="font-family: var(--font-heading);">HOOVER</a>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="products.html" class="nav-link">Products</a>
+                
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <a href="contact.html" class="hidden lg:inline-block btn btn-outline">Request Access</a>
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-white text-2xl z-50">
+                <i :class="mobileMenuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 -translate-y-full" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0 -translate-y-full" class="lg:hidden fixed inset-0 bg-primary-navy z-40 flex flex-col items-center justify-center space-y-6 text-2xl" style="display: none;">
+        <a href="index.html" @click="mobileMenuOpen = false" class="nav-link">Home</a>
+        <a href="about.html" @click="mobileMenuOpen = false" class="nav-link active">About</a>
+        <a href="products.html" @click="mobileMenuOpen = false" class="nav-link">Products</a>
+        
+        <a href="contact.html" @click="mobileMenuOpen = false" class="nav-link">Contact</a>
+        <a href="contact.html" @click="mobileMenuOpen = false" class="mt-4 btn btn-primary">Request Access</a>
+    </div>
+
+    <main>
+        <section class="page-header relative pt-48 pb-24 text-center">
+    <div class="absolute inset-0 z-0">
+        <img src="images/12.jpg" alt="Fresh ingredients" class="object-cover w-full h-full brightness-50">
+        <div class="absolute inset-0 bg-primary-navy opacity-60"></div>
+    </div>
+    <div class="relative z-10">
+        <h1 class="text-4xl md:text-6xl font-bold text-white" style="font-family: var(--font-heading);">From a Simple Idea to a Chef's Trusted Partner.</h1>
+        <p class="text-lg md:text-xl text-contrast-cream mt-4">This is our story.</p>
+    </div>
+</section>
+
+        <section class="py-24 bg-soft-gray">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Our Journey</h2>
+                    <p class="section-subtitle">A timeline of passion and precision.</p>
+                </div>
+
+                <div class="timeline-container relative max-w-3xl mx-auto">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2013</span>
+                            <h3 class="font-bold text-2xl text-primary-navy mt-1 mb-2">The Idea</h3>
+                            <p>Our founder, a veteran of the food service industry, saw a gap: restaurants needed a supplier that operated with the same precision and passion as their own kitchens. Hoover Restaurants, LLC was born from this simple idea.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-truck"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2016</span>
+                            <h3 class="font-bold text-2xl text-primary-navy mt-1 mb-2">First Warehouse</h3>
+                            <p>After three years of building a reputation for reliability out of a small facility, we opened our first dedicated warehouse in Suwanee, GA. This allowed us to expand our product lines and implement a state-of-the-art inventory system.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">2020</span>
+                            <h3 class="font-bold text-2xl text-primary-navy mt-1 mb-2">Expanding Our Family</h3>
+                            <p>We launched our first client portal and expanded our delivery fleet, focusing on technology to improve the customer experience. Our client base grew to over 50 restaurant groups across Georgia, cementing our status as a key partner.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">Today</span>
+                            <h3 class="font-bold text-2xl text-primary-navy mt-1 mb-2">Focused on the Future</h3>
+                            <p>With an unwavering commitment to quality and service, we continue to innovate, source unique products, and build lasting relationships. Your success is our mission.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white py-24">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-5 gap-12 items-center">
+                    <div class="lg:col-span-2">
+                        <div class="rounded-lg overflow-hidden shadow-2xl">
+                            <img src="images/11.jpg" alt="Founder of Hoover Restaurants, LLC" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="lg:col-span-3">
+                        <i class="fa-solid fa-quote-left text-4xl text-accent-salmon opacity-40 mb-4"></i>
+                        <blockquote class="text-2xl md:text-3xl font-light text-primary-navy leading-relaxed">
+                            "We don't just sell ingredients; we provide the foundation for culinary creation. Every box we deliver carries our promise of quality, reliability, and respect for the craft. We're here to be the partner I wish I had when I was in the kitchen."
+                        </blockquote>
+                        <p class="text-xl font-bold text-text-charcoal mt-6" style="font-family: var(--font-heading);">- James R. Hoover</p>
+                        <p class="text-gray-500">Founder & CEO, Hoover Restaurants, LLC</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-contrast-cream">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                    <h2 class="section-title">Our Core Values</h2>
+                    <p class="section-subtitle">The principles that guide every decision we make.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="value-card p-8 bg-white rounded-lg shadow-md">
+                        <i class="fa-solid fa-gem text-4xl text-accent-salmon"></i>
+                        <h4 class="font-bold text-2xl mt-4 mb-2 text-primary-navy">Uncompromising Quality</h4>
+                        <p class="text-gray-600">If it's not good enough for a Michelin-star plate, it's not good enough for our clients.</p>
+                    </div>
+                    <div class="value-card p-8 bg-white rounded-lg shadow-md">
+                        <i class="fa-solid fa-handshake-angle text-4xl text-accent-salmon"></i>
+                        <h4 class="font-bold text-2xl mt-4 mb-2 text-primary-navy">True Partnership</h4>
+                        <p class="text-gray-600">We succeed when you succeed. We act as an extension of your team, not just a vendor.</p>
+                    </div>
+                    <div class="value-card p-8 bg-white rounded-lg shadow-md">
+                        <i class="fa-solid fa-clock-rotate-left text-4xl text-accent-salmon"></i>
+                        <h4 class="font-bold text-2xl mt-4 mb-2 text-primary-navy">Steadfast Reliability</h4>
+                        <p class="text-gray-600">On-time, every time. Your kitchen's rhythm depends on it, and we honor that trust.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-text-charcoal text-soft-gray">
+             <div class="container mx-auto px-6 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-4" style="font-family: var(--font-heading);">HOOVER</h4>
+                        <p class="text-sm">&copy; <span id="year"></span> Hoover Restaurants, LLC. All Rights Reserved.</p>
+                        <p class="text-xs text-gray-500 mt-4"></p>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold text-white mb-4 uppercase tracking-wider">Navigate</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="about.html" class="hover:text-accent-salmon transition-colors">About Us</a></li>
+                            <li><a href="products.html" class="hover:text-accent-salmon transition-colors">Products</a></li>
+                            <li><a href="clients.html" class="hover:text-accent-salmon transition-colors">Clientele</a></li>
+                            <li><a href="contact.html" class="hover:text-accent-salmon transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold text-white mb-4 uppercase tracking-wider">Contact</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start"><i class="fa-solid fa-location-dot mt-1 mr-3 flex-shrink-0"></i><span>4030 Johns Creek Pkwy,<br>Suwanee, GA 30024</span></li>
+                            <li class="flex items-center"><i class="fa-solid fa-envelope mr-3"></i><a href="mailto:sales@hooverrestaurantsllc.com" class="hover:text-accent-salmon transition-colors">sales@hooverrestaurantsllc.com</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold text-white mb-4 uppercase tracking-wider">Connect</h5>
+                        <div class="flex space-x-4 text-xl">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    
+    <script src="script-about.js"></script>
+</body>
+</html>

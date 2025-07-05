@@ -1,0 +1,506 @@
+/* style.css */
+
+/* Define CSS Variables for the color palette and fonts */
+:root {
+    --primary-navy: #1f2f45;
+    --accent-salmon: #f0766a;
+    --contrast-cream: #fff7e6;
+    --soft-gray: #eaeff2;
+    --text-charcoal: #2d2d2d;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --font-heading: 'DM Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-charcoal);
+    background-color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header & Navigation */
+header {
+    background: transparent;
+    transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+header.scrolled {
+    background-color: rgba(31, 47, 69, 0.85); /* primary-navy with opacity */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+    position: relative;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-salmon);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-salmon);
+}
+
+/* Buttons */
+.btn {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    padding: 0.75rem 1.5rem; /* py-3 px-6 */
+    border-radius: 0.375rem; /* rounded-md */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background-color: var(--accent-salmon);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #ef5a4c; /* A slightly darker salmon */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-4px);
+}
+
+.btn-outline {
+    border: 2px solid var(--contrast-cream);
+    color: var(--contrast-cream);
+}
+
+.btn-outline:hover {
+    background-color: var(--contrast-cream);
+    color: var(--primary-navy);
+    transform: translateY(-4px);
+}
+
+/* Glassmorphism Hero Card */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Section Titles */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.25rem; /* text-4xl */
+    line-height: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+}
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 3rem; /* md:text-5xl */
+        line-height: 1;
+    }
+}
+.section-subtitle {
+    font-size: 1.125rem; /* text-lg */
+    color: #4a5568; /* text-gray-600 */
+    margin-top: 0.75rem;
+    max-width: 42rem; /* max-w-2xl */
+    margin-left: auto;
+    margin-right: auto;
+}
+.section-title.text-left, .section-subtitle.text-left {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Category Cards */
+.category-card {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    height: 24rem;
+    cursor: pointer;
+    transform: perspective(1000px);
+    transition: transform 0.4s ease;
+}
+.category-card:hover {
+    transform: translateY(-10px) perspective(1000px);
+}
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.category-card:hover .card-img {
+    transform: scale(1.05);
+}
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.6), transparent);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.card-title {
+    color: white;
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700;
+    font-family: var(--font-heading);
+    transition: transform 0.4s ease-out;
+}
+.card-details {
+    color: var(--contrast-cream);
+    font-size: 0.875rem; /* 14px */
+    margin-top: 0.5rem;
+    opacity: 0;
+    max-height: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+.category-card:hover .card-title {
+    transform: translateY(-65px); /* Move title up to make space */
+}
+.category-card:hover .card-details {
+    opacity: 1;
+    max-height: 100px;
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    padding-top: 4rem; /* to make space for the avatar */
+    position: relative;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Footer Social Icons */
+.social-icon {
+    width: 2.5rem; /* w-10 */
+    height: 2.5rem; /* h-10 */
+    border-radius: 9999px; /* rounded-full */
+    background-color: #4A5568; /* bg-gray-600 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.social-icon:hover {
+    background-color: var(--accent-salmon);
+    transform: scale(1.1);
+}
+
+/* Swiper Logos */
+.logo-swiper .swiper-slide img {
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: filter 0.3s, opacity 0.3s;
+}
+.logo-swiper .swiper-slide:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* --- Appended styles for About Page --- */
+
+/* Page Header */
+.page-header h1, .page-header p {
+    text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Timeline */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #d1d5db; /* A light gray */
+    border-radius: 2px;
+}
+
+/* CORRECTED: Timeline items are now always visible */
+.timeline-item {
+    position: relative;
+    padding-left: 60px; /* Space for icon and line */
+    margin-bottom: 50px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-salmon);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    border: 3px solid var(--soft-gray);
+}
+
+.timeline-content {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+}
+
+.timeline-year {
+    font-family: var(--font-heading);
+    color: var(--accent-salmon);
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Values Cards */
+.value-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+/* --- Appended styles for Products Page --- */
+
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #d1d5db; /* gray-300 */
+}
+
+.filter-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 240px;
+  padding: 0.75rem 1rem;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem; /* rounded-md */
+  font-weight: 600;
+  color: var(--primary-navy);
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.filter-button:hover {
+  border-color: var(--primary-navy);
+  box-shadow: 0 0 0 2px rgba(31, 47, 69, 0.1);
+}
+
+.filter-button i {
+  font-size: 0.8rem;
+  color: #9ca3af; /* gray-400 */
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  width: 240px;
+  background-color: white;
+  border-radius: 0.375rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  z-index: 20;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  overflow: hidden;
+  padding: 0.5rem 0;
+}
+
+.filter-option {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  color: var(--text-charcoal);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.filter-option:hover {
+  background-color: var(--soft-gray);
+  color: var(--primary-navy);
+}
+
+/* Product Cards */
+.product-card {
+  background-color: white;
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 15px -3px rgba(31, 47, 69, 0.1), 0 4px 6px -2px rgba(31, 47, 69, 0.08);
+}
+
+/* Product Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem; /* 12px */
+  font-weight: 600;
+  border-radius: 9999px; /* rounded-full */
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.badge-green { background-color: #10B981; } /* Emerald-500 */
+.badge-blue { background-color: #3B82F6; } /* Blue-500 */
+.badge-orange { background-color: #F97316; } /* Orange-500 */
+.badge-cyan { background-color: #06B6D4; } /* Cyan-500 */
+
+/* --- Appended styles for Contact Page --- */
+
+.contact-page-bg {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 1.5rem 4rem 1.5rem;
+  background: linear-gradient(135deg, var(--contrast-cream) 0%, #fde7e4 50%, var(--soft-gray) 100%);
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 1100px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .contact-card {
+    grid-template-columns: 55% 45%;
+  }
+}
+
+/* Form Styles */
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary-navy);
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-salmon);
+  box-shadow: 0 0 0 3px rgba(240, 118, 106, 0.3);
+  background-color: white;
+}
+
+/* Map Container with Blurred Edge */
+.map-container {
+  position: relative;
+  min-height: 400px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* This creates the blurred edge effect */
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 60%, transparent 100%);
+}
+@media (max-width: 767px) {
+    .map-container {
+       border-radius: 0 0 1rem 1rem;
+    }
+}
+
+
+.map-container iframe {
+    filter: grayscale(1) contrast(1.1) brightness(0.9);
+}
+
+.map-overlay-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    background: linear-gradient(to top, rgba(31, 47, 69, 0.9) 0%, rgba(31, 47, 69, 0) 100%);
+    pointer-events: none; /* Allows clicking through to the map */
+}
+.map-overlay-info a {
+    pointer-events: all; /* Make links clickable */
+}
+
+/* Glowing Social Icons */
+.social-icon-glow {
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.social-icon-glow:hover {
+    transform: scale(1.1);
+    color: var(--accent-salmon);
+    text-shadow: 0 0 15px var(--accent-salmon);
+}

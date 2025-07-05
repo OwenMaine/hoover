@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | Hoover Restaurants, LLC</title>
+    
+    <meta name="description" content="Browse our curated selection of premium meats, produce, dry goods, and more.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body x-data="{}" class="bg-soft-gray">
+
+    <header class="fixed top-0 left-0 w-full z-50 header-subpage">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-wider" style="font-family: var(--font-heading);">HOOVER</a>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="products.html" class="nav-link active">Products</a>
+                
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <a href="contact.html" class="hidden lg:inline-block btn btn-outline">Request Access</a>
+            </nav>
+    </header>
+
+    <main class="pt-24"> <section class="bg-white py-12">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="section-title">Our Products</h1>
+                <p class="section-subtitle">A curated catalog of the finest ingredients, ready for your kitchen.</p>
+            </div>
+        </section>
+
+        <section class="py-16" x-data="productFilters()">
+            <div class="container mx-auto px-6">
+                <div class="filter-bar">
+                    <div x-data="{ open: false }" class="relative">
+                        <button @click="open = !open" class="filter-button">
+                            <span x-text="filters.category.label"></span>
+                            <i class="fa-solid fa-chevron-down transition-transform" :class="{'rotate-180': open}"></i>
+                        </button>
+                        <div x-show="open" @click.away="open = false" class="filter-dropdown" style="display: none;">
+                            <a @click="setFilter('category', 'all', 'All Categories')" class="filter-option">All Categories</a>
+                            <a @click="setFilter('category', 'meats', 'Meats')" class="filter-option">Meats</a>
+                            <a @click="setFilter('category', 'produce', 'Produce')" class="filter-option">Produce</a>
+                            <a @click="setFilter('category', 'dry-goods', 'Dry Goods')" class="filter-option">Dry Goods</a>
+                        </div>
+                    </div>
+                    <div x-data="{ open: false }" class="relative">
+                        <button @click="open = !open" class="filter-button">
+                             <span x-text="filters.availability.label"></span>
+                            <i class="fa-solid fa-chevron-down transition-transform" :class="{'rotate-180': open}"></i>
+                        </button>
+                        <div x-show="open" @click.away="open = false" class="filter-dropdown" style="display: none;">
+                            <a @click="setFilter('availability', 'all', 'All Availability')" class="filter-option">All Availability</a>
+                            <a @click="setFilter('availability', 'in-stock', 'In Stock')" class="filter-option">In Stock</a>
+                            <a @click="setFilter('availability', 'on-demand', 'On-Demand')" class="filter-option">On-Demand</a>
+                        </div>
+                    </div>
+                    <div x-data="{ open: false }" class="relative">
+                         <button @click="open = !open" class="filter-button">
+                           <span x-text="filters.delivery.label"></span>
+                            <i class="fa-solid fa-chevron-down transition-transform" :class="{'rotate-180': open}"></i>
+                        </button>
+                        <div x-show="open" @click.away="open = false" class="filter-dropdown" style="display: none;">
+                            <a @click="setFilter('delivery', 'all', 'All Delivery Types')" class="filter-option">All Delivery Types</a>
+                            <a @click="setFilter('delivery', 'fresh', 'Fresh')" class="filter-option">Fresh</a>
+                            <a @click="setFilter('delivery', 'frozen', 'Frozen')" class="filter-option">Frozen</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <template x-for="product in filteredProducts" :key="product.id">
+                        <div class="product-card" x-show="true" x-transition>
+                            <div class="relative">
+                                <img :src="product.image" :alt="product.name" class="h-64 w-full object-cover rounded-t-lg">
+                                <div class="absolute top-3 right-3 flex flex-col gap-2">
+                                     <template x-for="badge in product.badges" :key="badge.name">
+                                        <span class="badge" :class="badge.color" x-text="badge.name"></span>
+                                    </template>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-primary-navy" x-text="product.name"></h3>
+                                <p class="text-gray-500 capitalize" x-text="product.category"></p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-text-charcoal text-soft-gray">
+       </footer>
+
+    <script>
+        function productFilters() {
+            return {
+                filters: {
+                    category: { value: 'all', label: 'All Categories' },
+                    availability: { value: 'all', label: 'All Availability' },
+                    delivery: { value: 'all', label: 'All Delivery Types' },
+                },
+                products: [
+                    { id: 1, name: 'Angus Beef Ribeye', category: 'meats', availability: 'in-stock', delivery: 'fresh', image: 'images/product-steak.jpg', badges: [{name: 'Fresh', color:'badge-green'}, {name:'In Stock', color:'badge-blue'}] },
+                    { id: 2, name: 'Norwegian Salmon Fillet', category: 'meats', availability: 'in-stock', delivery: 'frozen', image: 'images/product-salmon.jpg', badges: [{name: 'Frozen', color:'badge-cyan'}, {name:'In Stock', color:'badge-blue'}] },
+                    { id: 3, name: 'Free-Range Chicken Breast', category: 'meats', availability: 'on-demand', delivery: 'fresh', image: 'images/product-chicken.jpg', badges: [{name: 'Fresh', color:'badge-green'}, {name:'On-Demand', color:'badge-orange'}] },
+                    { id: 4, name: 'Organic Mixed Greens', category: 'produce', availability: 'in-stock', delivery: 'fresh', image: 'images/product-greens.jpg', badges: [{name: 'Fresh', color:'badge-green'}, {name:'In Stock', color:'badge-blue'}] },
+                    { id: 5, name: 'Heirloom Tomatoes', category: 'produce', availability: 'on-demand', delivery: 'fresh', image: 'images/product-tomatoes.jpg', badges: [{name: 'Fresh', color:'badge-green'}, {name:'On-Demand', color:'badge-orange'}] },
+                    { id: 6, name: 'Russet Potatoes (50lb)', category: 'produce', availability: 'in-stock', delivery: 'fresh', image: 'images/product-potatoes.jpg', badges: [{name: 'Fresh', color:'badge-green'}, {name:'In Stock', color:'badge-blue'}] },
+                    { id: 7, name: 'All-Purpose Flour (25kg)', category: 'dry-goods', availability: 'in-stock', delivery: 'fresh', image: 'images/product-flour.jpg', badges: [{name:'In Stock', color:'badge-blue'}] },
+                    { id: 8, name: 'Extra Virgin Olive Oil', category: 'dry-goods', availability: 'in-stock', delivery: 'fresh', image: 'images/product-oil.jpg', badges: [{name:'In Stock', color:'badge-blue'}] },
+                    { id: 9, name: 'Bulk Spice Assortment', category: 'dry-goods', availability: 'on-demand', delivery: 'fresh', image: 'images/product-spices.jpg', badges: [{name:'On-Demand', color:'badge-orange'}] },
+                ],
+                setFilter(type, value, label) {
+                    this.filters[type] = { value, label };
+                },
+                get filteredProducts() {
+                    return this.products.filter(p => 
+                        (this.filters.category.value === 'all' || p.category === this.filters.category.value) &&
+                        (this.filters.availability.value === 'all' || p.availability === this.filters.availability.value) &&
+                        (this.filters.delivery.value === 'all' || p.delivery === this.filters.delivery.value)
+                    );
+                }
+            }
+        }
+    </script>
+</body>
+</html>

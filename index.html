@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoover Restaurants, LLC | Premium Food Distribution</title>
+
+    <meta name="description" content="Hoover Restaurants, LLC is a respected food product supplier serving a wide range of culinary clients — from restaurants to institutions and catering professionals.">
+    <meta name="author" content="Hoover Restaurants, LLC">
+    <meta name="keywords" content="food supplier, food distribution, restaurants, georgia, meats, produce, dry goods">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.0/dist/cdn.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body x-data="{ mobileMenuOpen: false }" class="bg-white">
+
+    <header class="fixed top-0 left-0 w-full z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white tracking-wider" style="font-family: var(--font-heading);">
+                HOOVER
+            </a>
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="products.html" class="nav-link">Products</a>
+                
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <a href="contact.html" class="hidden lg:inline-block btn btn-outline">Request Access</a>
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-white text-2xl z-50">
+                <i :class="mobileMenuOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'"></i>
+            </button>
+        </nav>
+    </header>
+
+    <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-full" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-full" class="lg:hidden fixed inset-0 bg-primary-navy z-40 flex flex-col items-center justify-center space-y-6 text-2xl" style="display: none;">
+        <a href="index.html" @click="mobileMenuOpen = false" class="nav-link active">Home</a>
+        <a href="about.html" @click="mobileMenuOpen = false" class="nav-link">About</a>
+        <a href="products.html" @click="mobileMenuOpen = false" class="nav-link">Products</a>
+        
+        <a href="contact.html" @click="mobileMenuOpen = false" class="nav-link">Contact</a>
+        <a href="contact.html" @click="mobileMenuOpen = false" class="mt-4 btn btn-primary">Request Access</a>
+    </div>
+
+    <main>
+        <section class="relative h-screen min-h-[700px] flex items-center justify-center text-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img src="images/1.jpg" alt="A beautifully plated dish" class="object-cover w-full h-full brightness-50 blur-sm">
+        <div class="absolute inset-0 bg-primary-navy opacity-50"></div>
+    </div>
+    <div class="relative z-10 p-8 glass-card">
+        <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight" style="font-family: var(--font-heading);">
+            Elevated Sourcing for Elevated Taste.
+        </h1>
+        <p class="text-lg md:text-xl text-contrast-cream mt-4 max-w-2xl mx-auto">
+            Premium Food Distribution for the Culinary Industry.<br>
+            <span class="font-semibold">Reliable. Flexible. Always Fresh.</span>
+        </p>
+        <div class="mt-8 flex justify-center gap-4">
+            <a href="products.html" class="btn btn-primary">Browse Products</a>
+            <a href="contact.html" class="btn btn-outline">Request Access</a>
+        </div>
+    </div>
+</section>
+
+        <section class="py-16 bg-soft-gray">
+             <div class="container mx-auto text-center px-6">
+                 <h3 class="text-sm font-semibold tracking-widest text-gray-500 uppercase">TRUSTED BY GEORGIA'S FINEST</h3>
+                 <div class="swiper logo-swiper mt-8">
+                     <div class="swiper-wrapper">
+                         
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        <div class="relative h-24 md:h-48 -mt-1" style="transform: translateY(1px);">
+            <svg viewBox="0 0 1440 320" class="absolute bottom-0 w-full h-full" style="color: var(--soft-gray);">
+                <path fill="currentColor" d="M0,224L48,229.3C96,235,192,245,288,250.7C384,256,480,256,576,234.7C672,213,768,171,864,165.3C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+            </svg>
+        </div>
+
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Our Core Categories</h2>
+                    <p class="section-subtitle">Sourced with precision, delivered with care.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="category-card"><img src="images/2.jpg" alt="Premium cuts of meat" class="card-img"><div class="card-overlay"><h3 class="card-title">Meats</h3><div class="card-details"><p><strong>Delivery:</strong> Next-Day</p><p><strong>MOQ:</strong> 50 lbs</p><p><strong>Chef's Note:</strong> Ask about our dry-aged program.</p></div></div></div>
+                    <div class="category-card"><img src="images/3.jpg" alt="Fresh organic produce" class="card-img"><div class="card-overlay"><h3 class="card-title">Produce</h3><div class="card-details"><p><strong>Delivery:</strong> Daily Fresh</p><p><strong>MOQ:</strong> 1 Case</p><p><strong>Chef's Note:</strong> Local sourcing from Georgia farms.</p></div></div></div>
+                    <div class="category-card"><img src="images/4.jpg" alt="Aisle of dry goods" class="card-img"><div class="card-overlay"><h3 class="card-title">Dry Goods</h3><div class="card-details"><p><strong>Delivery:</strong> 2-3 Days</p><p><strong>MOQ:</strong> None</p><p><strong>Chef's Note:</strong> Global spices and specialty flours available.</p></div></div></div>
+                    <div class="category-card"><img src="images/5.jpg" alt="Chef consulting with supplier" class="card-img"><div class="card-overlay"><h3 class="card-title">Custom Orders</h3><div class="card-details"><p><strong>Delivery:</strong> Varies</p><p><strong>MOQ:</strong> Varies</p><p><strong>Chef's Note:</strong> Your vision, sourced by our team.</p></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-contrast-cream">
+            <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+                <div class="h-96 lg:h-full rounded-lg overflow-hidden shadow-2xl"><img src="images/6.jpg" alt="Hoover Restaurants warehouse interior" class="w-full h-full object-cover"></div>
+                <div>
+                    <h2 class="section-title text-left">The Hoover Advantage</h2>
+                    <p class="section-subtitle text-left max-w-lg">We're more than a supplier; we're a partner in your culinary success.</p>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="p-6 bg-white rounded-lg shadow-md"><i class="fa-solid fa-truck-fast text-3xl text-accent-salmon"></i><h4 class="font-bold text-xl mt-4 mb-2 text-primary-navy">Fast Logistics</h4><p class="text-gray-600">Optimized routes and a modern fleet ensure your ingredients arrive on time, every time.</p></div>
+                        <div class="p-6 bg-white rounded-lg shadow-md"><i class="fa-solid fa-seedling text-3xl text-accent-salmon"></i><h4 class="font-bold text-xl mt-4 mb-2 text-primary-navy">Curated Sourcing</h4><p class="text-gray-600">We build relationships with the best farms and producers to bring you exceptional quality.</p></div>
+                        <div class="p-6 bg-white rounded-lg shadow-md"><i class="fa-solid fa-chart-line text-3xl text-accent-salmon"></i><h4 class="font-bold text-xl mt-4 mb-2 text-primary-navy">Client Portals</h4><p class="text-gray-600">Easy online ordering, tracking, and account management designed for busy chefs.</p></div>
+                        <div class="p-6 bg-white rounded-lg shadow-md"><i class="fa-solid fa-headset text-3xl text-accent-salmon"></i><h4 class="font-bold text-xl mt-4 mb-2 text-primary-navy">Dedicated Support</h4><p class="text-gray-600">Your personal account manager understands your needs and is always ready to help.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-20 bg-primary-navy text-white">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <div class="stat-item"><h3 class="text-5xl font-bold" data-counter-target="10">0</h3><p class="text-lg text-contrast-cream mt-2">Years Serving Georgia</p></div>
+                    <div class="stat-item"><h3 class="text-5xl font-bold" data-counter-target="1250">0</h3><p class="text-lg text-contrast-cream mt-2">Orders Delivered Monthly</p></div>
+                    <div class="stat-item"><h3 class="text-5xl font-bold" data-counter-target="99">0</h3><p class="text-lg text-contrast-cream mt-2">% On-Time Fulfillment</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-soft-gray">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16"><h2 class="section-title">What Our Partners Say</h2><p class="section-subtitle">Building relationships, one delivery at a time.</p></div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="testimonial-card"><img src="images/7.jpg" alt="Chef Jean-Luc" class="w-20 h-20 rounded-full mx-auto -mt-14 border-4 border-white shadow-lg"><i class="fa-solid fa-quote-left text-3xl text-accent-salmon opacity-30 absolute top-6 left-6"></i><p class="text-gray-600 italic mt-6">"Hoover's reliability is unmatched. Their sourcing for our seasonal menu has been a game-changer. They're an integral part of our kitchen's success."</p><div class="mt-4 text-center"><h5 class="font-bold text-primary-navy">Chef Jean-Luc</h5><p class="text-sm text-gray-500">The French Brasserie</p></div></div>
+                    <div class="testimonial-card"><img src="images/8.jpg" alt="Maria Rodriguez" class="w-20 h-20 rounded-full mx-auto -mt-14 border-4 border-white shadow-lg"><i class="fa-solid fa-quote-left text-3xl text-accent-salmon opacity-30 absolute top-6 left-6"></i><p class="text-gray-600 italic mt-6">"The online portal is fantastic. I can place my entire weekly order in minutes, track its status, and know it will arrive exactly when I need it. The quality is always top-notch."</p><div class="mt-4 text-center"><h5 class="font-bold text-primary-navy">Maria Rodriguez</h5><p class="text-sm text-gray-500">Taco Vista Group</p></div></div>
+                    <div class="testimonial-card"><img src="images/9.jpg" alt="David Chen" class="w-20 h-20 rounded-full mx-auto -mt-14 border-4 border-white shadow-lg"><i class="fa-solid fa-quote-left text-3xl text-accent-salmon opacity-30 absolute top-6 left-6"></i><p class="text-gray-600 italic mt-6">"From day one, Hoover has felt like a true partner. Their team goes above and beyond to source unique ingredients for our catering events. Highly recommended."</p><div class="mt-4 text-center"><h5 class="font-bold text-primary-navy">David Chen</h5><p class="text-sm text-gray-500">Prestige Catering</p></div></div>
+                </div>
+            </div>
+        </section>
+
+       <section class="relative py-24 bg-white">
+    <div class="absolute inset-0 z-0 opacity-20"><img src="images/10.jpg" alt="Kitchen background" class="object-cover w-full h-full"></div>
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="bg-primary-navy text-white rounded-lg shadow-2xl p-12 md:p-16 text-center max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold" style="font-family: var(--font-heading);">Let’s Elevate Your Menu.</h2>
+            <p class="text-lg text-contrast-cream mt-4 max-w-xl mx-auto">Become a Hoover partner and experience the difference that quality sourcing and reliable service can make.</p>
+            <form class="mt-8 max-w-lg mx-auto flex flex-col sm:flex-row gap-4">
+                <input type="email" placeholder="Enter your business email" class="flex-grow p-4 rounded-md text-text-charcoal focus:outline-none focus:ring-2 focus:ring-accent-salmon">
+                <button type="submit" class="btn btn-primary">Get Started</button>
+            </form>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer class="bg-text-charcoal text-soft-gray">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-4" style="font-family: var(--font-heading);">HOOVER</h4>
+                    <p class="text-sm">&copy; <span id="year"></span> Hoover Restaurants, LLC. All Rights Reserved.</p>
+                    <p class="text-xs text-gray-500 mt-4"></p>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-white mb-4 uppercase tracking-wider">Navigate</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="hover:text-accent-salmon transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-accent-salmon transition-colors">Products</a></li>
+                        <li><a href="clients.html" class="hover:text-accent-salmon transition-colors">Clientele</a></li>
+                        <li><a href="contact.html" class="hover:text-accent-salmon transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-white mb-4 uppercase tracking-wider">Contact</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-start"><i class="fa-solid fa-location-dot mt-1 mr-3 flex-shrink-0"></i><span>4030 Johns Creek Pkwy,<br>Suwanee, GA 30024</span></li>
+                        <li class="flex items-center"><i class="fa-solid fa-envelope mr-3"></i><a href="mailto:sales@hooverrestaurantsllc.com" class="hover:text-accent-salmon transition-colors">sales@hooverrestaurantsllc.com</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-white mb-4 uppercase tracking-wider">Connect</h5>
+                    <div class="flex space-x-4 text-xl">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
